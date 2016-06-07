@@ -155,7 +155,7 @@ Simpla is configurable via the `Simpla()` constructor. You can even define your 
 
 **`project`**
 
-Every Simpla project has an API key associated to it. Simpla can't fetch or save data without a valid project key defined.
+Every Simpla project has an API key associated with it. Simpla can't fetch or save data without a valid project key defined.
 
 **`elements`**
 
@@ -176,7 +176,7 @@ Simpla({
 
 Simpla's HTML elements need to be loaded onto your page before you can use them. The `elements` property takes either an array of full paths to elements, or an object with a `base` url and an array of relative `paths`.
 
-**Note:** All elements _must_ be loaded from the same place, otherwise dependencies wont be properly resolved.
+**Note:** All elements _must_ be loaded from the same place, otherwise dependencies won't be properly resolved.
 
 ## Hosting elements locally
 
@@ -198,7 +198,7 @@ Simpla({
 });
 ```
 
-If you're working with [Polymer](https://www.polymer-project.org) serve Simpla's elements locally to avoid dependancy conflicts. Install them with Bower then change the `base` property to your bower components directory.
+If you're working with [Polymer](https://www.polymer-project.org), serve Simpla's elements locally to avoid dependancy conflicts. Install them with Bower then change the `base` property to your bower components directory.
 
 **Note:** If possible, hotlinking from Simpla's element CDN (`elements.simpla.io`) is highly recommended, since it multiplexes requests over HTTP/2.
 
@@ -249,16 +249,16 @@ Simpla-img is an editable image
 <simpla-img sid="img"></simpla-img>
 ```
 
-`<simpla-img>` is an editable image. Use it in place of static the HTML `<img>` element.
+`<simpla-img>` is an editable image. Use it in place of the static HTML `<img>` element.
 
 <simpla-img sid="example" class="simpla-example" editable></simpla-img>
 
-**Note:** Currently setting `width` and `height` attributes directly on a `<simpla-img>` is not supported, sizing must be done via CSS.
+**Note:** Currently setting `width` and `height` attributes directly on a `<simpla-img>` is not supported. Sizing must be done via CSS.
 
 ## Options
 
 ### Popout mode
-If a `<simpla-img>` is partially off-screen whilst editing it will 'pop' into view when clicked.
+If a `<simpla-img>` is partially off-screen whilst editing, it will 'pop' into view when clicked.
 
 ```comment
 Force a simpla-img to always popout
@@ -633,7 +633,7 @@ Simpla's element catalogue, hosted on [elements.simpla.io][elements]
 [elements]: https://elements.simpla.io
 
 ### The ecosystem
-The bulk of Simpla's functionality comes from elements in the ecosystem, each talking independantly to Simpla's API.
+The bulk of Simpla's functionality comes from elements in the ecosystem, each talking independently to Simpla's API.
 
 ## Simpla elements
 These are the new dynamic HTML elements themselves, use them in your code to create, structure, and manipulate content.
@@ -679,7 +679,7 @@ A flexible callout box with moveable pointer.
 Modules provide independent functionality for Simpla, but aren't used directly by the user to create dynamic content.
 
 ### [`sm-module-save`][module-save]
-Contains the UI and logic that requests all elements save their data back to the API.
+Contains the UI and logic that request all elements save their data back to the API.
 
 ### [`sm-module-login`][module-login]
 Contains the UI and logic to log a user in when entering edit mode.
