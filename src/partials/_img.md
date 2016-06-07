@@ -35,9 +35,10 @@ simpla-img supports any valid CSS background as a placeholder
 
 ```html
 <simpla-img sid="img-1" placeholder="http://placekitten.com/g/600/400"></simpla-img>
-<simpla-img sid="img-2" placeholder="#64d8e8"></simpla-img>
-<simpla-img sid="img-3" placeholder="pink"></simpla-img>
 
+<simpla-img sid="img-2" placeholder="#64d8e8"></simpla-img>
+
+<simpla-img sid="img-3" placeholder="pink"></simpla-img>
 ```
 
 Simpla-img shows a placeholder in edit mode when it has no content. You can customize it with the `placeholder` property. Placeholders can be a path to an image or any valid CSS color value. 

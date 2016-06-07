@@ -64,7 +64,7 @@ Break out of namespaces with Global IDs
 ```html
 <simpla-block sid="block">
 
-  <!-- This 'global-text' is NOT scoped to 'block' -->
+  <!-- The data in this text is NOT scoped -->
   <simpla-text gid="global-text"></simpla-text>
 
 </simpla-block>
