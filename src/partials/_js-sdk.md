@@ -5,7 +5,7 @@ Store the Simpla SDK in a variable when initializing a project
 ```
 
 ```js
-var simpla = Simpla('PROJECT-KEY');
+var simpla = Simpla('PROJECT-ID');
 ```
 
 The `Simpla()` constructor returns a client SDK that can be used to interact with Simpla's API. Store it in a variable when you initialize your project.

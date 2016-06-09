@@ -11,12 +11,12 @@ Include this snippet in your <head>
 ```html
 <script src="https://app.simpla.io"></script>
 <script>
-  // TODO: Enter project key
-  Simpla('PROJECT-KEY');
+  // TODO: Enter project ID
+  Simpla('PROJECT-ID');
 </script>
 ```
 
-Login to your [dashboard](https://www.simpla.io/projects) and create a project, then include the Simpla library in your HTML document and call `Simpla()` with your project's API key.
+Login to your [dashboard](https://www.simpla.io/projects) and create a project, then include the Simpla library in your HTML document and call `Simpla()` with your project's ID.
 
 ### Use the elements
 Drop Simpla's elements into your code wherever you want editable content.
@@ -113,18 +113,18 @@ Include the [core library](https://github.com/simplaio/simpla) either from our h
 <hr> 
 
 ```js
-// Init with project key
-Simpla('PROJECT-KEY');
+// Init with project ID
+Simpla('PROJECT-ID');
 
 // Init with options object
 Simpla({
-  project: 'PROJECT-KEY'
+  project: 'PROJECT-ID'
 });
 
 ```
 <!-- {data-lang="JS"} -->
 
-To boot Simpla call `Simpla()` with your project key, either as a string or a property in an options object.
+To boot Simpla call `Simpla()` with your project ID, either as a string or a property in an options object.
 
 `Simpla()` returns a client that can be used to interact with Simpla's API. See [Javascript SDK](#javascript-sdk) for more.
 
@@ -155,7 +155,7 @@ Simpla is configurable via the `Simpla()` constructor. You can even define your 
 
 **`project`**
 
-Every Simpla project has an API key associated with it. Simpla can't fetch or save data without a valid project key defined.
+Every Simpla project has a unique ID. Simpla can't fetch or save data without a valid project ID set.
 
 **`elements`**
 
@@ -481,7 +481,7 @@ Store the Simpla SDK in a variable when initializing a project
 ```
 
 ```js
-var simpla = Simpla('PROJECT-KEY');
+var simpla = Simpla('PROJECT-ID');
 ```
 
 The `Simpla()` constructor returns a client SDK that can be used to interact with Simpla's API. Store it in a variable when you initialize your project.

@@ -11,12 +11,12 @@ Include this snippet in your <head>
 ```html
 <script src="https://app.simpla.io"></script>
 <script>
-  // TODO: Enter project key
-  Simpla('PROJECT-KEY');
+  // TODO: Enter project ID
+  Simpla('PROJECT-ID');
 </script>
 ```
 
-Login to your [dashboard](https://www.simpla.io/projects) and create a project, then include the Simpla library in your HTML document and call `Simpla()` with your project's API key.
+Login to your [dashboard](https://www.simpla.io/projects) and create a project, then include the Simpla library in your HTML document and call `Simpla()` with your project's ID.
 
 ### Use the elements
 Drop Simpla's elements into your code wherever you want editable content.
