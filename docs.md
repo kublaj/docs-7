@@ -209,8 +209,9 @@ Simpla-text can be a container or inner content
 ```
 
 ```html
-<simpla-text sid="text-container"></simpla-text>
-<h1><simpla-text sid="text-content"></simpla-text></h1>
+<simpla-text sid="container"></simpla-text>
+
+<h1><simpla-text sid="content"></simpla-text></h1>
 ```
 
 `<simpla-text>` contains editable rich-text. You can use it as a standalone container or as the content inside other textual elements (eg: headings).
@@ -268,7 +269,7 @@ Force a simpla-img to always popout
 <simpla-img sid="img" popout></simpla-img>
 ```
 
-You can force a simpla-img to always pop into view when editing with the `popout` attribute. This is useful for when editing controls are obscured by something other than the viewport, eg: inside a rounded container with `overflow: hidden`.
+You can force a simpla-img to always pop into view when editing with the `popout` attribute. This is useful when editing controls are obscured by something other than the viewport, eg: inside a rounded container with `overflow: hidden`.
 
 ### Placeholders
 ```comment
@@ -294,7 +295,7 @@ Simpla-img shows a placeholder in edit mode when it has no content. You can cust
 </div>
 
 # Structuring data
-Simpla's data structure is determined on the fly by your code. With a few simple tools you can achieve powerful schemas straight in HTML.
+Simpla's data structure is constructed on the fly by your code. With a few simple tools you can quickly create powerful schemas.
 
 ## Content IDs
 ```comment
@@ -306,7 +307,7 @@ A Content ID can be any string that doesn't contain spaces or periods
 <simpla-img sid="img"></simpla-img>
 ```
 
-The most basic unit of structuring Simpla data is the Content ID. All Simpla elements require a unique ID to identify their content in your project. In most cases you'll want to specify this in the `sid` (Simpla ID) property. 
+The most basic unit of data structuring in Simpla is the Content ID. All Simpla elements require a unique ID to identify their content in your project. In most cases you'll want to specify this in the `sid` (Simpla ID) property. 
 
 A Content ID can be any string that doesn't contain spaces or periods (`.`), since Simpla uses periods internally to represent hierarchies.
 
@@ -329,7 +330,7 @@ Create namespaces with simpla-block
 You can create namespaces with the `<simpla-block>` element. The SIDs of elements inside a `<simpla-block>` are scoped to that block, ensuring that their content is unique. Like other Simpla elements, simpla-block requires a Content ID to identify the namespace it creates.
 
 ```comment
-Nest blocks to create complex structures
+Nest blocks to create hierarchies
 ```
 
 ```html
@@ -346,7 +347,7 @@ Nest blocks to create complex structures
 </simpla-block>
 ```
 
-You can infinitely nest simpla-blocks to create complex schemas. Their SID acts the same as other elements, scoped to their parent block.
+You can infinitely nest simpla-blocks to create hierarchies. Their SID acts the same as other elements, scoped to their parent block.
 
 ## Global data
 
@@ -368,7 +369,7 @@ Break out of namespaces with Global IDs
 <simpla-text gid="global-text"></simpla-text>
 ```
 
-You can break out of namespaces with Global IDs, defined in the `gid` property. Elements with a GID ignore scoping and are accessible anywhere in your project. Edits in one element will be reflected in all others with the same GID. This is useful for pieces of content that are the same no matter where they're used (eg: contact details, headers and footers).
+You can break out of namespaces with Global IDs, defined in the `gid` property. Data tied to a GID ignores scoping and is accessible anywhere in your project. Edits in one element will be reflected in all others with the same GID. This is useful for pieces of content that are the same no matter where they're used (eg: contact details, headers and footers).
 
 Simpla-blocks can use GIDs as well, to create globally unique namespaces.
 
@@ -481,7 +482,7 @@ Store the Simpla SDK in a variable when initializing a project
 ```
 
 ```js
-var simpla = Simpla('PROJECT-ID');
+window.simpla = Simpla('PROJECT-ID');
 ```
 
 The `Simpla()` constructor returns a client SDK that can be used to interact with Simpla's API. Store it in a variable when you initialize your project.
@@ -508,7 +509,7 @@ simpla
   });
 ```
 
-The `login()` method takes an object containing the user's credentials as `email` and `password` properties. It returns a promise with the user's auth token.
+The `login()` method takes an object containing the user's credentials in `email` and `password` properties. It returns a promise with the user's auth token.
 
 ### Logout
 

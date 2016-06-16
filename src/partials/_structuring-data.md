@@ -1,5 +1,5 @@
 # Structuring data
-Simpla's data structure is determined on the fly by your code. With a few simple tools you can achieve powerful schemas straight in HTML.
+Simpla's data structure is constructed on the fly by your code. With a few simple tools you can quickly create powerful schemas.
 
 ## Content IDs
 ```comment
@@ -11,7 +11,7 @@ A Content ID can be any string that doesn't contain spaces or periods
 <simpla-img sid="img"></simpla-img>
 ```
 
-The most basic unit of structuring Simpla data is the Content ID. All Simpla elements require a unique ID to identify their content in your project. In most cases you'll want to specify this in the `sid` (Simpla ID) property. 
+The most basic unit of data structuring in Simpla is the Content ID. All Simpla elements require a unique ID to identify their content in your project. In most cases you'll want to specify this in the `sid` (Simpla ID) property. 
 
 A Content ID can be any string that doesn't contain spaces or periods (`.`), since Simpla uses periods internally to represent hierarchies.
 
@@ -34,7 +34,7 @@ Create namespaces with simpla-block
 You can create namespaces with the `<simpla-block>` element. The SIDs of elements inside a `<simpla-block>` are scoped to that block, ensuring that their content is unique. Like other Simpla elements, simpla-block requires a Content ID to identify the namespace it creates.
 
 ```comment
-Nest blocks to create complex structures
+Nest blocks to create hierarchies
 ```
 
 ```html
@@ -51,7 +51,7 @@ Nest blocks to create complex structures
 </simpla-block>
 ```
 
-You can infinitely nest simpla-blocks to create complex schemas. Their SID acts the same as other elements, scoped to their parent block.
+You can infinitely nest simpla-blocks to create hierarchies. Their SID acts the same as other elements, scoped to their parent block.
 
 ## Global data
 
@@ -73,7 +73,7 @@ Break out of namespaces with Global IDs
 <simpla-text gid="global-text"></simpla-text>
 ```
 
-You can break out of namespaces with Global IDs, defined in the `gid` property. Elements with a GID ignore scoping and are accessible anywhere in your project. Edits in one element will be reflected in all others with the same GID. This is useful for pieces of content that are the same no matter where they're used (eg: contact details, headers and footers).
+You can break out of namespaces with Global IDs, defined in the `gid` property. Data tied to a GID ignores scoping and is accessible anywhere in your project. Edits in one element will be reflected in all others with the same GID. This is useful for pieces of content that are the same no matter where they're used (eg: contact details, headers and footers).
 
 Simpla-blocks can use GIDs as well, to create globally unique namespaces.
 

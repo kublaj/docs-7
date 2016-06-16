@@ -5,8 +5,9 @@ Simpla-text can be a container or inner content
 ```
 
 ```html
-<simpla-text sid="text-container"></simpla-text>
-<h1><simpla-text sid="text-content"></simpla-text></h1>
+<simpla-text sid="container"></simpla-text>
+
+<h1><simpla-text sid="content"></simpla-text></h1>
 ```
 
 `<simpla-text>` contains editable rich-text. You can use it as a standalone container or as the content inside other textual elements (eg: headings).

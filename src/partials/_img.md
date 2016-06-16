@@ -26,7 +26,7 @@ Force a simpla-img to always popout
 <simpla-img sid="img" popout></simpla-img>
 ```
 
-You can force a simpla-img to always pop into view when editing with the `popout` attribute. This is useful for when editing controls are obscured by something other than the viewport, eg: inside a rounded container with `overflow: hidden`.
+You can force a simpla-img to always pop into view when editing with the `popout` attribute. This is useful when editing controls are obscured by something other than the viewport, eg: inside a rounded container with `overflow: hidden`.
 
 ### Placeholders
 ```comment

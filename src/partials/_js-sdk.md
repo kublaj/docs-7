@@ -5,7 +5,7 @@ Store the Simpla SDK in a variable when initializing a project
 ```
 
 ```js
-var simpla = Simpla('PROJECT-ID');
+window.simpla = Simpla('PROJECT-ID');
 ```
 
 The `Simpla()` constructor returns a client SDK that can be used to interact with Simpla's API. Store it in a variable when you initialize your project.
@@ -32,7 +32,7 @@ simpla
   });
 ```
 
-The `login()` method takes an object containing the user's credentials as `email` and `password` properties. It returns a promise with the user's auth token.
+The `login()` method takes an object containing the user's credentials in `email` and `password` properties. It returns a promise with the user's auth token.
 
 ### Logout
 
