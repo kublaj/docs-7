@@ -9,7 +9,7 @@ Simpla-img is an editable image
 
 `<simpla-img>` is an editable image. Use it in place of the static HTML `<img>` element.
 
-<simpla-img sid="example" class="simpla-example" editable></simpla-img>
+<simpla-img sid="example" class="simpla-example"></simpla-img>
 
 **Note:** Currently setting `width` and `height` attributes directly on a `<simpla-img>` is not supported. Sizing must be done via CSS.
 
@@ -46,7 +46,7 @@ Simpla-img shows a placeholder in edit mode when it has no content. You can cust
 **Note:** If an image is used as a placeholder it doesn't determine the size of `<simpla-img>` like actual content does.
 
 <div class="simpla-example">
-  <simpla-img sid="example" placeholder="http://placekitten.com/g/600/400" editable></simpla-img>
-  <simpla-img sid="example" placeholder="#64d8e8" editable></simpla-img>
-  <simpla-img sid="example" placeholder="pink" editable></simpla-img>
+  <simpla-img sid="example" placeholder="http://placekitten.com/g/600/400"></simpla-img>
+  <simpla-img sid="example" placeholder="#64d8e8"></simpla-img>
+  <simpla-img sid="example" placeholder="pink"></simpla-img>
 </div>

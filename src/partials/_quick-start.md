@@ -31,7 +31,7 @@ Use simpla-text for editable text
 <simpla-text sid="text"></simpla-text>
 ```
 
-<simpla-text sid="example-text" class="simpla-example" editable></simpla-text>
+<simpla-text sid="example-text" class="simpla-example"></simpla-text>
 
 Use `<simpla-img>` for editable images:
 
@@ -43,7 +43,7 @@ Use simpla-img for editable images
 <simpla-img sid="img"></simpla-img>
 ```
 
-<simpla-img sid="example-img" class="simpla-example" editable></simpla-img>
+<simpla-img sid="example-img" class="simpla-example"></simpla-img>
 
 All Simpla elements must have a unique _Content ID_ (usually contained in the `sid` attribute) and both opening and closing HTML tags.
 
