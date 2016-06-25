@@ -202,7 +202,7 @@ If you're working with [Polymer](https://www.polymer-project.org), serve Simpla'
 
 **Note:** If possible, hotlinking from Simpla's element CDN (`elements.simpla.io`) is highly recommended, since it multiplexes requests over HTTP/2.
 
-# Editable text
+# Text
 
 ```comment
 Simpla-text can be a container or inner content
@@ -241,7 +241,7 @@ Set a custom placeholder with the 'placeholder' property
 ```
 
 Simpla-text shows a placeholder in edit mode when it has no content. You can customize the default placeholder with the `placeholder` property.
-# Editable images
+# Images
 ```comment
 Simpla-img is an editable image
 ```

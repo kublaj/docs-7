@@ -1,4 +1,4 @@
-# Editable text
+# Text
 
 ```comment
 Simpla-text can be a container or inner content

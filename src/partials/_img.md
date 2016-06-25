@@ -1,4 +1,4 @@
-# Editable images
+# Images
 ```comment
 Simpla-img is an editable image
 ```
