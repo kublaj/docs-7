@@ -628,7 +628,7 @@ Simpla is open-source under the MIT license, visit our GitHub repos:
 The core Simpla library
 
 **[github.com/SimplaElements][SimplaElements]** 
-Simpla's element catalogue, hosted on [elements.simpla.io][elements]
+Simpla's element catalogue, hosted on elements.simpla.io
 
 [simplaio/simpla]: https://github.com/simplaio/simpla
 [SimplaElements]: https://github.com/SimplaElements
