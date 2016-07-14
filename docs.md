@@ -31,7 +31,7 @@ Use simpla-text for editable text
 <simpla-text sid="text"></simpla-text>
 ```
 
-<simpla-text sid="example-text" class="simpla-example"></simpla-text>
+<simpla-text class="simpla-example" editable></simpla-text>
 
 Use `<simpla-img>` for editable images:
 
@@ -43,7 +43,7 @@ Use simpla-img for editable images
 <simpla-img sid="img"></simpla-img>
 ```
 
-<simpla-img sid="example-img" class="simpla-example"></simpla-img>
+<simpla-img class="simpla-example" editable></simpla-img>
 
 All Simpla elements must have a unique _Content ID_ (usually contained in the `sid` attribute) and both opening and closing HTML tags.
 
@@ -219,7 +219,7 @@ Simpla-text can be a container or inner content
 
 `<simpla-text>` contains editable rich-text. You can use it as a standalone container or as the content inside other textual elements (eg: headings).
 
-<simpla-text sid="example" class="simpla-example"></simpla-text>
+<simpla-text class="simpla-example" editable></simpla-text>
 
 ## Options 
 
@@ -255,7 +255,7 @@ Simpla-img is an editable image
 
 `<simpla-img>` is an editable image. Use it in place of the static HTML `<img>` element.
 
-<simpla-img sid="example" class="simpla-example"></simpla-img>
+<simpla-img class="simpla-example" editable></simpla-img>
 
 **Note:** Currently setting `width` and `height` attributes directly on a `<simpla-img>` is not supported. Sizing must be done via CSS.
 

@@ -12,7 +12,7 @@ Simpla-text can be a container or inner content
 
 `<simpla-text>` contains editable rich-text. You can use it as a standalone container or as the content inside other textual elements (eg: headings).
 
-<simpla-text sid="example" class="simpla-example"></simpla-text>
+<simpla-text class="simpla-example" editable></simpla-text>
 
 ## Options 
 
