@@ -1,9 +1,9 @@
 # Installation and setup
-Simpla serves content over a RESTful API to its HTML library, so it can be setup on any stack.
+Simpla runs on the frontend over a RESTful API. It runs on any stack, and works with the framework or tools you already use.
 
 ### Install
 ```comment
-Include Simpla from our CDN
+Include Simpla from the CDN
 ```
 
 ```html
@@ -34,11 +34,8 @@ Simpla({
 });
 
 ```
-<!-- {data-lang="JS"} -->
 
-To boot Simpla call `Simpla()` with your project ID, either as a string or a property in an options object.
-
-`Simpla()` returns a client that can be used to interact with Simpla's API. See [Javascript SDK](#javascript-sdk) for more.
+To initialize Simpla call `Simpla()` with your project ID, either as a string or a property in an options object.
 
 ## Options
 
@@ -63,7 +60,7 @@ Simpla({
 });
 ```
 
-Simpla is configurable via the `Simpla()` constructor. You can even define your own API by extending the core SDK at [simplaio/simpla-core](https://github.com/simplaio/simpla-core).
+Simpla is configurable via the `Simpla()` initializer.
 
 **`project`**
 
@@ -95,7 +92,7 @@ Simpla's HTML elements need to be loaded onto your page before you can use them.
 <hr>
 
 ```comment
-Install with bower and change the 'base' property when initializing
+Install with bower and change the 'base' property to your Bower components directory
 ```
 
 ```sh
@@ -110,6 +107,6 @@ Simpla({
 });
 ```
 
-If you're working with [Polymer](https://www.polymer-project.org), serve Simpla's elements locally to avoid dependancy conflicts. Install them with Bower then change the `base` property to your bower components directory.
+If you're working with [Polymer](https://www.polymer-project.org), serve Simpla's elements locally to avoid dependancy conflicts. Install them with Bower then change the `base` property to your Bower components directory.
 
 **Note:** If possible, hotlinking from Simpla's element CDN (`elements.simpla.io`) is highly recommended, since it multiplexes requests over HTTP/2.

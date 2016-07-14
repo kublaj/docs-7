@@ -1,17 +1,23 @@
 # Javascript SDK
 
 ```comment
-Store the Simpla SDK in a variable when initializing a project
+Use Simpla's SDK after initializing your project
 ```
+
+```js
+Simpla('PROJECT-ID');
+```
+
+Use Simpla's Javascript SDK to interact with the global state of your app and the API.
 
 ```js
 window.simpla = Simpla('PROJECT-ID');
 ```
 
-The `Simpla()` constructor returns a client SDK that can be used to interact with Simpla's API. Store it in a variable when you initialize your project.
+Before using the SDK make sure you initialize your project with the `Simpla()` initalizer. The initializer returns itself, so you can also store the SDK in a variable if you prefer
 
 ## Authentication
-You can authenticate users programatically with the `login()` and `logout()` methods.
+Programatically authenticate users with the `login()` and `logout()` methods (note you only need these if you want a programatic way to login/logout, Simpla handles frontend user authentication for you).
 
 ### Login
 ```comment
@@ -50,7 +56,7 @@ simpla
 
 The `logout()` method clears the user's token and returns a promise, it doesn't take any arguments. 
 
-## Getting and setting
+## Getting and setting content
 Use the low-level `get()` and `set()`  methods to get and set content straight from Simpla's API.
 
 ### Get content

@@ -1,6 +1,6 @@
 @@include('./partials/_quick-start.md')
-@@include('./partials/_concepts.md')
 @@include('./partials/_setup.md')
+@@include('./partials/_using-elements.md')
 @@include('./partials/_text.md')
 @@include('./partials/_img.md')
 @@include('./partials/_structuring-data.md')

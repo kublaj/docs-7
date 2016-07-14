@@ -1,5 +1,5 @@
 # Quick start
-Simpla is a content management API that lets developers create dynamic content in pure HTML and update it inline.
+Simpla is a collection of new HTML elements powered by an API. Use them in your code to create editable content.
 
 [download sample template](https://github.com/simplaio/sample-template/archive/master.zip) <!-- {.button} -->
 

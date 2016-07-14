@@ -1,5 +1,5 @@
 # Quick start
-Simpla is a content management API that lets developers create dynamic content in pure HTML and update it inline.
+Simpla is a collection of new HTML elements powered by an API. Use them in your code to create editable content.
 
 [download sample template](https://github.com/simplaio/sample-template/archive/master.zip) <!-- {.button} -->
 
@@ -50,48 +50,12 @@ All Simpla elements must have a unique _Content ID_ (usually contained in the `s
 ### Create content
 Open your page in a browser, add `#edit` to the end of the URL (eg: `https://mysite.com#edit`), and login to start editing your content. When you're finished press save to publish your changes. Remove `#edit` from the URL to exit edit mode.
 
-# Concepts
-Simpla is very different to legacy CMSs. Content is served from the cloud over a RESTful API, to a library of new HTML elements that you use to create, structure, and manipulate data in your code.
-
-## Web Components
-At Simpla's core is an ecosystem of new HTML elements, like `<simpla-text>` and `<simpla-img>`. They exist as legitimate HTML on your site, thanks to an emerging family of standards called [Web Components](https://www.w3.org/wiki/WebComponents/). Web Components allows us to register custom elements on a page that are fully interoperable with the browser's built-in elements. 
-
-The elements have their own UI and logic, fully encapsulated in the [Shadow DOM](http://webcomponents.org/articles/introduction-to-shadow-dom/), allowing Simpla to exist inline on your site without interferring with any of your code.
-
-### Using the elements
-Simpla's elements require both opening and closing tags, even if they are effectively void (eg: simpla-text and simpla-img).
-
-```comment
-Set element properties as attributes
-```
-
-```html
-<simpla-text sid="text" inline></simpla-text>    
-```
-
-```comment
-Or with Javascript
-```
-
-```js
-var text = document.querySelector('simpla-text');
-text.inline = true;
-```
-
-Properties can be set as HTML attributes or with Javascript. If a property name is multi-word, it's kebab cased in HTML (eg: `my-property`), and camel cased in Javascript (eg: `myProperty`).
-
-
-## Content API
-Your content is stored securely in the cloud and served through a RESTful API to Simpla's HTML elements. Simpla isn't involved in presentation, it doesn't require page templates or knowledge of how your project works. You can pull content from Simpla's API to use anywhere (see [Javascript SDK](#javascript-sdk)).
-
-## Inline editing
-Simpla doesn't have any admin areas or forms. Content is contained inside the new HTML elements, so you can edit everything inline, and it stays strictly structured.
 # Installation and setup
-Simpla serves content over a RESTful API to its HTML library, so it can be setup on any stack.
+Simpla runs on the frontend over a RESTful API. It runs on any stack, and works with the framework or tools you already use.
 
 ### Install
 ```comment
-Include Simpla from our CDN
+Include Simpla from the CDN
 ```
 
 ```html
@@ -122,11 +86,8 @@ Simpla({
 });
 
 ```
-<!-- {data-lang="JS"} -->
 
-To boot Simpla call `Simpla()` with your project ID, either as a string or a property in an options object.
-
-`Simpla()` returns a client that can be used to interact with Simpla's API. See [Javascript SDK](#javascript-sdk) for more.
+To initialize Simpla call `Simpla()` with your project ID, either as a string or a property in an options object.
 
 ## Options
 
@@ -151,7 +112,7 @@ Simpla({
 });
 ```
 
-Simpla is configurable via the `Simpla()` constructor. You can even define your own API by extending the core SDK at [simplaio/simpla-core](https://github.com/simplaio/simpla-core).
+Simpla is configurable via the `Simpla()` initializer.
 
 **`project`**
 
@@ -183,7 +144,7 @@ Simpla's HTML elements need to be loaded onto your page before you can use them.
 <hr>
 
 ```comment
-Install with bower and change the 'base' property when initializing
+Install with bower and change the 'base' property to your Bower components directory
 ```
 
 ```sh
@@ -198,10 +159,52 @@ Simpla({
 });
 ```
 
-If you're working with [Polymer](https://www.polymer-project.org), serve Simpla's elements locally to avoid dependancy conflicts. Install them with Bower then change the `base` property to your bower components directory.
+If you're working with [Polymer](https://www.polymer-project.org), serve Simpla's elements locally to avoid dependancy conflicts. Install them with Bower then change the `base` property to your Bower components directory.
 
 **Note:** If possible, hotlinking from Simpla's element CDN (`elements.simpla.io`) is highly recommended, since it multiplexes requests over HTTP/2.
 
+# Using the elements
+You create dynamic content with Simpla using a collection of new HTML elements, like `<simpla-text>` and `<simpla-img>`.
+
+## Content IDs
+Simpla elements require a 'content ID', which is used to fetch the right piece of content for a given element. A content ID can be any string that doesn't contain spaces or periods (`.`), since Simpla uses periods internally to represent hierarchies.
+
+### SIDs
+
+```html
+<simpla-text sid="my-text"></simpla-text>
+```
+
+By default, you should set an element's content ID as an `sid` (Simpla ID). SIDs are scoped to the namespaces created by `<simpla-block>` elements, allowing you to create structured data on your page (see [Structuring Data](#structuring-data)).
+
+### GIDs
+
+```html
+<simpla-text gid="global-text"></simpla-text>
+```
+
+You can use a `gid` (Global ID) to break out of namespaces and ensure it has the same data no matter where it's used in your project. This is useful for using one piece of content in multiple places, for example: reflecting a page title to a nav item (see [Global Data](#global-data)).
+
+## Setting properties
+
+```comment
+Set element properties as attributes
+```
+
+```html
+<simpla-text sid="text" inline></simpla-text>    
+```
+
+```comment
+Or with Javascript
+```
+
+```js
+var text = document.querySelector('simpla-text');
+text.inline = true;
+```
+
+Simpla elements have various properties associated to them (eg: `sid` and `gid`). These properties can be set as HTML attributes or with Javascript. If a property name is multi-word, it is kebab cased in HTML (eg: `my-property`), and camel cased in Javascript (eg: `myProperty`).
 # Text
 
 ```comment
@@ -295,22 +298,8 @@ Simpla-img shows a placeholder in edit mode when it has no content. You can cust
 </div>
 
 # Structuring data
-Simpla's data structure is constructed on the fly by your code. With a few simple tools you can quickly create powerful schemas.
 
-## Content IDs
-```comment
-A Content ID can be any string that doesn't contain spaces or periods
-```
-
-```html
-<simpla-text sid="text"></simpla-text>
-<simpla-img sid="img"></simpla-img>
-```
-
-The most basic unit of data structuring in Simpla is the Content ID. All Simpla elements require a unique ID to identify their content in your project. In most cases you'll want to specify this in the `sid` (Simpla ID) property. 
-
-A Content ID can be any string that doesn't contain spaces or periods (`.`), since Simpla uses periods internally to represent hierarchies.
-
+Simpla's data structure is constructed on the fly. This means you can very easily create dynamic experiences, with just HTML and Javascript.
 
 ## Namespacing
 
@@ -327,7 +316,7 @@ Create namespaces with simpla-block
 </simpla-block>
 ```
 
-You can create namespaces with the `<simpla-block>` element. The SIDs of elements inside a `<simpla-block>` are scoped to that block, ensuring that their content is unique. Like other Simpla elements, simpla-block requires a Content ID to identify the namespace it creates.
+Create namespaces, or content blocks, with the `<simpla-block>` element. The SIDs of elements inside a `<simpla-block>` are scoped to that block, ensuring that their content is unique. Like other Simpla elements, simpla-block requires a Content ID to identify the namespace it creates.
 
 ```comment
 Nest blocks to create hierarchies
@@ -369,7 +358,7 @@ Break out of namespaces with Global IDs
 <simpla-text gid="global-text"></simpla-text>
 ```
 
-You can break out of namespaces with Global IDs, defined in the `gid` property. Data tied to a GID ignores scoping and is accessible anywhere in your project. Edits in one element will be reflected in all others with the same GID. This is useful for pieces of content that are the same no matter where they're used (eg: contact details, headers and footers).
+Break out of namespaces with Global IDs, defined in the `gid` property. Data tied to a GID ignores scoping and is accessible anywhere in your project. Edits in one element will be reflected in all others with the same GID. This is useful for pieces of content that are the same no matter where they're used (eg: contact details, headers and footers).
 
 Simpla-blocks can use GIDs as well, to create globally unique namespaces.
 
@@ -395,100 +384,30 @@ Changing Content IDs reloads data
 </simpla-block>
 ```
 
-Whenever the Content ID of a Simpla element changes it re-fetches its data, and in the case of `<simpla-block>`, forces all of its children to recalculate their data as well. This means you can swap whole sections of content by just changing the `sid` of a surrounding block, and instantly update data without refreshing the page.
+Whenever the content ID of a Simpla element changes it re-fetches its data, and in the case of `<simpla-block>`, forces all of its children to recalculate their data as well. This means you can swap whole sections of content by just changing the `sid` of a surrounding block.
 
 For example, you can create a simple frontend blog with a few lines of HTML and Javascript.
-
-## Best practices
-
-### Scope pages with a `<body>` SID
-
-```comment
-Scope page content by setting an sid on <body>
-```
-
-```html
-<body sid="page-id">
-  <simpla-text sid="title"></simpla-text>
-  ...
-</body>
-```
-
-Elements not inside a `<simpla-block>` are by definition in the global scope. This usually isn't desirable when working with multiple pages. Scope data to a page by setting an `sid` on the `<body>` element. This creates a new namespace for the whole document, equivalent to wrapping everything in a `<simpla-block>`.
-
-```comment
-Use object notation to set an sid on <body> programatically
-```
-
-```javascript
-document.body.sid = 'page-id';
-```
-
-**Note:** Setting an `sid` on `<body>` with Javascript using `.setAttribute()` isn't supported, use object notation instead.
-
-### Load conditional content dynamically
-
-<hr>
-
-```comment
-Set Content IDs conditionally with Javascript, for example localization
-```
-
-```html
-<body sid="content#en">
-  <simpla-text sid="text"></simpla-text>
-  ...
-</body>
-```
-
-```js
-var locale = function() {
-  // Return locale code based on geolocation
-};
-
-document.body.sid = 'content#' + locale;
-```
-
-Use the fact that elements are reloaded when their Content ID changes to serve conditional content. For example, you could create versions of your site in different languages, then use a simple script to change the `sid` on the `<body>` based on frontend geolocation to localize all your content. 
-
-Other cases where this could be handy are changing content based on viewport size, reacting to user input, personalizing content to different users, etc.
-
-### Use GIDs to create collections  
-
-<hr>
-
-```comment
-The GID 'blog' now contains two items, 'post-1' and 'post-2'
-```
-
-```html
-<simpla-block gid="blog">
-  <simpla-block sid="post-1"></simpla-block>
-</simpla-block>
-
-<simpla-block gid="blog">
-  <simpla-block sid="post-2"></simpla-block>
-</simpla-block>
-```
-
-Since GIDs are accessible globally throughout your project, you can use them in multiple places on simpla-blocks to create collections of content. For example, by wrapping blog posts in a `<simpla-block>` with a GID of `blog`, you will have a collection of content under 'blog', which contains all of your posts. 
-
-This is handy anywhere you need a content index, like blog feeds, site menus, products, etc.
 
 # Javascript SDK
 
 ```comment
-Store the Simpla SDK in a variable when initializing a project
+Use Simpla's SDK after initializing your project
 ```
+
+```js
+Simpla('PROJECT-ID');
+```
+
+Use Simpla's Javascript SDK to interact with the global state of your app and the API.
 
 ```js
 window.simpla = Simpla('PROJECT-ID');
 ```
 
-The `Simpla()` constructor returns a client SDK that can be used to interact with Simpla's API. Store it in a variable when you initialize your project.
+Before using the SDK make sure you initialize your project with the `Simpla()` initalizer. The initializer returns itself, so you can also store the SDK in a variable if you prefer
 
 ## Authentication
-You can authenticate users programatically with the `login()` and `logout()` methods.
+Programatically authenticate users with the `login()` and `logout()` methods (note you only need these if you want a programatic way to login/logout, Simpla handles frontend user authentication for you).
 
 ### Login
 ```comment
@@ -527,7 +446,7 @@ simpla
 
 The `logout()` method clears the user's token and returns a promise, it doesn't take any arguments. 
 
-## Getting and setting
+## Getting and setting content
 Use the low-level `get()` and `set()`  methods to get and set content straight from Simpla's API.
 
 ### Get content
@@ -632,13 +551,9 @@ Simpla's element catalogue, hosted on elements.simpla.io
 
 [simplaio/simpla]: https://github.com/simplaio/simpla
 [SimplaElements]: https://github.com/SimplaElements
-[elements]: https://elements.simpla.io
 
-### The ecosystem
+## The elements
 The bulk of Simpla's functionality comes from elements in the ecosystem, each talking independently to Simpla's API.
-
-## Simpla elements
-These are the new dynamic HTML elements themselves, use them in your code to create, structure, and manipulate content.
 
 ### [`simpla-block`][simpla-block]
 Structures data by creating namespaces for SIDs.
@@ -649,37 +564,6 @@ Contains editable rich-text.
 ### [`simpla-img`][simpla-img]
 An editable image.
 
-[simpla-block]: https://github.com/SimplaElements/simpla-block
-[simpla-text]: https://github.com/SimplaElements/simpla-text
-[simpla-img]: https://github.com/SimplaElements/simpla-img
-
-## UI components
-Visual components that are used throughout the Simpla ecosystem to achieve a consistent UI.
-
-### [`sm-ui-core`][ui-core]
-Core UI resources (CSS, icons, etc).
-
-### [`sm-ui-button`][ui-button]
-Extends `<button>` with various properties and methods.
-
-### [`sm-ui-toolbar`][ui-toolbar]
-Pluggable toolbar used by textual elements for formatting controls.
-
-### [`sm-ui-modal`][ui-modal] 
-A simple modal/dialog element.
-
-### [`sm-ui-callout`][ui-callout]
-A flexible callout box with moveable pointer.
-
-[ui-core]: https://github.com/SimplaElements/sm-ui-core
-[ui-button]: https://github.com/SimplaElements/sm-ui-button
-[ui-toolbar]: https://github.com/SimplaElements/sm-ui-toolbar
-[ui-modal]: https://github.com/SimplaElements/sm-ui-modal
-[ui-callout]: https://github.com/SimplaElements/sm-ui-callout
-
-## Modules
-Modules provide independent functionality for Simpla, but aren't used directly by the user to create dynamic content.
-
 ### [`sm-module-save`][module-save]
 Contains the UI and logic that request all elements save their data back to the API.
 
@@ -689,6 +573,9 @@ Contains the UI and logic to log a user in when entering edit mode.
 ### [`sm-module-notify`][module-notify]
 Simpla's notification centre. Handles all success, warning, and error messages by logging them and/or notifying with toasts.
 
+[simpla-block]: https://github.com/SimplaElements/simpla-block
+[simpla-text]: https://github.com/SimplaElements/simpla-text
+[simpla-img]: https://github.com/SimplaElements/simpla-img
 [module-save]: https://github.com/SimplaElements/sm-module-save
 [module-login]: https://github.com/SimplaElements/sm-module-login
 [module-notify]: https://github.com/SimplaElements/sm-module-notify
