@@ -70,11 +70,11 @@ Or locally via Bower
 $ bower install --save simpla
 ```
 
-Include the [core library](https://github.com/simplaio/simpla) either from our high-redundancy CDN or locally via Bower. 
+Include the [core library](https://github.com/simplaio/simpla) either from our high-redundancy CDN or locally via Bower.
 
 ### Setup
 
-<hr> 
+<hr>
 
 ```js
 // Init with project ID
@@ -106,7 +106,8 @@ Simpla({
       '/simpla-block/simpla-block.html',
       '/simpla-text/simpla-text.html',
       '/simpla-img/simpla-img.html',
-      '/sm-admin/sm-admin.html'
+      '/sm-module-save/sm-module-save.html',
+      '/sm-module-login/sm-module-login.html'
     ]
   }
 });
@@ -130,7 +131,8 @@ Simpla({
     'https://elements.simpla.io/simpla-block/simpla-block.html',
     'https://elements.simpla.io/simpla-text/simpla-text.html',
     'https://elements.simpla.io/simpla-img/simpla-img.html',
-    'https://elements.simpla.io/sm-admin/sm-admin.html'
+    'https://elements.simpla.io/sm-module-save/sm-module-save.html',
+    'https://elements.simpla.io/sm-module-login/sm-module-login.html'
   ]
 })
 ```
@@ -148,7 +150,7 @@ Install with bower and change the 'base' property to your Bower components direc
 ```
 
 ```sh
-$ bower install --save SimplaElements/simpla-block SimplaElements/simpla-text SimplaElements/simpla-img SimplaElements/sm-admin
+$ bower install --save SimplaElements/simpla-block SimplaElements/simpla-text SimplaElements/simpla-img SimplaElements/sm-module-save SimplaElements/sm-module-login
 ```
 
 ```js
