@@ -294,9 +294,9 @@ Simpla-img shows a placeholder in edit mode when it has no content. You can cust
 **Note:** If an image is used as a placeholder it doesn't determine the size of `<simpla-img>` like actual content does.
 
 <div class="simpla-example">
-  <simpla-img sid="example" placeholder="http://placekitten.com/g/600/400"></simpla-img>
-  <simpla-img sid="example" placeholder="#64d8e8"></simpla-img>
-  <simpla-img sid="example" placeholder="pink"></simpla-img>
+  <simpla-img sid="example" placeholder="http://placekitten.com/g/600/400" editable></simpla-img>
+  <simpla-img sid="example" placeholder="#64d8e8" editable></simpla-img>
+  <simpla-img sid="example" placeholder="pink" editable></simpla-img>
 </div>
 
 # Structuring data
