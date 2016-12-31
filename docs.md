@@ -400,13 +400,7 @@ Use Simpla's SDK after initializing your project
 Simpla('PROJECT-ID');
 ```
 
-Use Simpla's Javascript SDK to interact with the global state of your app and the API.
-
-```js
-window.simpla = Simpla('PROJECT-ID');
-```
-
-Before using the SDK make sure you initialize your project with the `Simpla()` initalizer. The initializer returns itself, so you can also store the SDK in a variable if you prefer
+Use Simpla's Javascript SDK to interact with the global state of your app and the API. Before using the SDK make sure you initialize your project with the `Simpla()` initalizer.
 
 ## Authentication
 Programatically authenticate users with the `login()` and `logout()` methods (note you only need these if you want a programatic way to login/logout, Simpla handles frontend user authentication for you).
@@ -417,12 +411,11 @@ Authenticate a user with login()
 ```
 
 ```js
-simpla
-  .login({
+Simpla.login({
     email: '...', 
     password: '...'
   })
-  .then(function(token) {
+  .then(function() {
     // Login successful
   })
   .catch(function(error) {
@@ -430,7 +423,7 @@ simpla
   });
 ```
 
-The `login()` method takes an object containing the user's credentials in `email` and `password` properties. It returns a promise with the user's auth token.
+The `login()` method takes an object containing the user's credentials in `email` and `password` properties. It returns a promise.
 
 ### Logout
 
@@ -439,8 +432,7 @@ Log a user out with logout()
 ```
 
 ```js
-simpla
-  .logout()
+Simpla.logout()
   .then(function() {
     // User logged out
   });
@@ -462,8 +454,7 @@ Fetch content with get()
 ```
 
 ```js
-simpla
-  .get('my-text')
+Simpla.get('my-text')
   .then(function(data) {
     // JSON data
   });
@@ -487,8 +478,7 @@ Calling get() on a namespace returns its children
 ```
 
 ```js
-simpla
-  .get('section')
+Simpla.get('section')
   .then(function(elements) {
     // Array of items
   });
@@ -505,8 +495,7 @@ Save JSON data with set()
 ```
 
 ```js
-simpla
-  .set('id', {
+Simpla.set('id', {
     id: 'id',
     ...
   })
@@ -536,8 +525,8 @@ Chain SIDs with periods to traverse namespaces
 ```
 
 ```js
-simpla.get('page.section.title');
-simpla.set('page.section.content', {});
+Simpla.get('page.section.title');
+Simpla.set('page.section.content', {});
 ```
 
 To access content inside namespaces, chain SIDs with periods. This also allows you to create arbitrary data structures instantly with `set()`.
